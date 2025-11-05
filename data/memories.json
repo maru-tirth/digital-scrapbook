@@ -1,0 +1,38 @@
+[
+    {
+        "id": "1",
+        "photo": "assets/photos/1.jpg",
+        "message": "Remember this amazing sunset? One for the books!",
+        "date": "2024-08-15"
+    },
+    {
+        "id": "2",
+        "photo": "assets/photos/2.jpg",
+        "message": "That time we tried to bake and made a glorious mess.",
+        "date": "2024-05-20"
+    },
+    {
+        "id": "3",
+        "photo": "assets/photos/3.jpg",
+        "message": "Adventures with the best co-pilot I could ask for.",
+        "date": "2024-03-11"
+    },
+    {
+        "id": "4",
+        "photo": "assets/photos/4.jpg",
+        "message": "Just a perfect, lazy Sunday afternoon.",
+        "date": "2024-02-18"
+    },
+    {
+        "id": "5",
+        "photo": "assets/photos/5.jpg",
+        "message": "We should definitely go back here someday soon!",
+        "date": "2023-11-29"
+    },
+    {
+        "id": "6",
+        "photo": "assets/photos/6.jpg",
+        "message": "Cheers to more moments like this one. So much fun!",
+        "date": "2023-09-02"
+    }
+]

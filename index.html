@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Scrapbook</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- The script is deferred to run after the HTML is parsed -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- 1. Landing / Intro Page -->
+    <section id="landing-view" class="view active">
+        <div class="center-content">
+            <h1 class="landing-title">Digital Scrapbook</h1>
+            <p class="landing-subtitle">A collection of moments you have spent.</p>
+            <button id="open-scrapbook-btn" class="cta-button">Open Scrapbook</button>
+        </div>
+    </section>
+
+    <!-- 2. Digital Scrapbook View -->
+    <section id="scrapbook-view" class="view">
+        <div id="scrapbook-container">
+            <!-- Pages will be dynamically generated here by JavaScript -->
+        </div>
+        <div class="scrapbook-nav">
+            <button id="prev-page-btn" class="nav-button">&larr;</button>
+            <div id="page-counter"></div>
+            <button id="next-page-btn" class="nav-button">&rarr;</button>
+        </div>
+    </section>
+
+    <!-- 3. Polaroid Wall View -->
+    <section id="wall-view" class="view">
+        <h2 class="wall-title">Our Surprise Wall ✨</h2>
+        <div id="polaroid-wall-container">
+            <!-- Polaroid cards will be dynamically generated here -->
+        </div>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,242 @@
+/* --- THEME & SETUP --- */
+:root {
+  --background: #fff8f0;
+  --accent-1: #ffd6e0; /* Soft Pink */
+  --accent-2: #ffb997; /* Peach */
+  --accent-3: #a7bed3; /* Muted Pastel Blue */
+  --text-warm: #4b3832; /* Warm Brown */
+
+  --font-heading: "Caveat", cursive;
+  --font-body: "Poppins", sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--background);
+  color: var(--text-warm);
+  overflow-x: hidden;
+}
+
+/* --- VIEW MANAGEMENT --- */
+.view {
+  display: none; /* Hide all views by default */
+  min-height: 100vh;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.view.active {
+  display: flex; /* Show the active view */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+/* --- LANDING PAGE --- */
+.center-content {
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.landing-title {
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  color: var(--accent-2);
+  margin-bottom: 0.5rem;
+}
+.landing-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+.cta-button {
+  padding: 1rem 2rem;
+  background-color: var(--accent-1);
+  color: var(--text-warm);
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.cta-button:active {
+  transform: scale(0.98);
+}
+
+/* --- SCRAPBOOK VIEW --- */
+#scrapbook-container {
+  position: relative;
+  width: 90vw;
+  max-width: 900px;
+  height: 70vh;
+  perspective: 2000px;
+}
+.scrapbook-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  display: none; /* Hidden by default, JS will manage visibility */
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+.scrapbook-page.active {
+  display: grid;
+}
+.page-photo {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+.page-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.page-message {
+  padding: 1rem;
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  line-height: 1.4;
+  text-align: center;
+}
+/* For single-column layout on smaller screens */
+@media (max-width: 768px) {
+  .scrapbook-page {
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
+    height: 80vh;
+    padding: 1rem;
+  }
+  .page-message {
+    font-size: 2rem;
+  }
+}
+
+.scrapbook-nav {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+#page-counter {
+  font-size: 1.2rem;
+}
+.nav-button {
+  padding: 0.75rem 1.25rem;
+  border: none;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+.nav-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.nav-button:hover:not(:disabled) {
+  transform: scale(1.1);
+}
+
+/* --- POLAROID WALL --- */
+.wall-title {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  color: var(--accent-1);
+  margin-bottom: 2rem;
+}
+#polaroid-wall-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  width: 90vw;
+}
+.polaroid-card {
+  cursor: pointer;
+  perspective: 1000px;
+}
+.polaroid-card-inner {
+  position: relative;
+  width: 100%;
+  padding-top: 120%; /* Aspect ratio for polaroid */
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+.polaroid-card.is-flipped .polaroid-card-inner {
+  transform: rotateY(180deg);
+}
+.polaroid-front,
+.polaroid-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+}
+.polaroid-front {
+  background: white;
+  padding: 1rem 1rem 3rem 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.polaroid-card:hover .polaroid-front {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+.polaroid-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.polaroid-caption {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+}
+.polaroid-back {
+  background-color: var(--accent-3);
+  color: white;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  transform: rotateY(180deg);
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  text-align: center;
+  line-height: 1.3;
+}
