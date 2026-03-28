@@ -37,11 +37,41 @@
         </div>
     </section>
 
-    <!-- 3. Polaroid Wall View -->
+    <!-- 3. Birthday Surprise View -->
     <section id="wall-view" class="view">
-        <h2 class="wall-title">Our Surprise Wall ✨</h2>
-        <div id="polaroid-wall-container">
-            <!-- Polaroid cards will be dynamically generated here -->
+        <!-- Confetti Canvas -->
+        <canvas id="confetti-canvas"></canvas>
+
+        <!-- Floating Balloons -->
+        <span class="balloon b1" title="Pop me!">🎈</span>
+        <span class="balloon b2" title="Pop me!">🎈</span>
+        <span class="balloon b3" title="Pop me!">🎈</span>
+        <span class="balloon b4" title="Pop me!">🎈</span>
+        <span class="balloon b5" title="Pop me!">🎈</span>
+        <span class="balloon b6" title="Pop me!">🎈</span>
+
+        <!-- Ambient Sparkles -->
+        <div id="sparkles-container"></div>
+
+        <!-- Main Birthday Content -->
+        <div class="birthday-main">
+            <h1 class="birthday-title">Happy Birthday! 🎂</h1>
+
+            <!-- Interactive Cake -->
+            <div class="birthday-cake" id="birthday-cake">
+                <div id="candles-row"></div>
+                <div class="cake-tier cake-top"></div>
+                <div class="cake-tier cake-mid"></div>
+                <div class="cake-tier cake-bot"></div>
+            </div>
+
+            <p class="blow-hint" id="blow-hint">Click the candles to blow them out! 🌬️</p>
+
+            <div class="birthday-message-box">
+                <p class="birthday-typewriter" id="birthday-typewriter"></p>
+            </div>
+
+            <button class="cta-button wish-btn" id="wish-btn">Make a Wish! ✨</button>
         </div>
     </section>
 
