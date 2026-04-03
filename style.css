@@ -494,7 +494,9 @@ body {
   max-width: 100%;
   box-shadow: 2px 3px 8px rgba(255, 153, 102, 0.15);
   animation: fadeSlideUp 0.5s ease 0.12s both;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
 }
 .page-song-tag:hover {
   transform: translateY(-2px) scale(1.03);
@@ -626,20 +628,114 @@ body {
 @media (max-width: 700px) {
   .scrapbook-page {
     grid-template-columns: 1fr;
-    grid-template-rows: 1.5fr 1fr;
+    grid-template-rows: 1fr 1fr;
   }
   .page-stack-left,
   .page-stack-right {
     display: none;
   }
   .page-message-text {
-    font-size: 1.45rem;
+    font-size: 1.35rem;
+    line-height: 1.45;
   }
   #book-open-wrapper {
-    height: min(720px, 84vh);
+    height: min(780px, 90vh);
+    width: 98vw;
+  }
+  .page-left {
+    padding: 1rem;
+    overflow: hidden;
+  }
+  .photo-frame img {
+    max-height: 38vh;
+    width: auto;
+    max-width: 100%;
+  }
+  .page-right {
+    padding: 1rem 1.2rem 0.8rem;
+    overflow-y: auto;
+    gap: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  .page-memory-label {
+    font-size: 0.55rem;
+  }
+  .page-message-doodle {
+    display: none;
+  }
+  .page-song-tag {
+    margin-top: 0.5rem;
+    padding: 0.45rem 0.75rem;
   }
   .landing-overlay {
-    margin-top: 62vh;
+    margin-top: 60vh;
+  }
+  .progress-strip {
+    width: 98vw;
+  }
+}
+
+@media (max-width: 480px) {
+  #book-open-wrapper {
+    height: 88svh;
+    width: 100vw;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .scrapbook-page {
+    grid-template-rows: 42% 58%;
+    border-radius: 0;
+  }
+  .page-left {
+    padding: 0.8rem 0.8rem 0.5rem;
+  }
+  .photo-frame img {
+    max-height: 32vh;
+  }
+  .page-right {
+    padding: 0.7rem 1rem 0.5rem;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 0.4rem;
+  }
+  .page-message-text {
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+  .page-song-tag {
+    gap: 0.4rem;
+    padding: 0.38rem 0.65rem;
+    margin-top: 0.3rem;
+  }
+  .song-title {
+    font-size: 0.85rem;
+  }
+  .song-artist {
+    font-size: 0.62rem;
+  }
+  .nav-button {
+    width: 46px;
+    height: 46px;
+    font-size: 1rem;
+  }
+  .scrapbook-nav {
+    gap: 0.8rem;
+  }
+  #page-counter {
+    font-size: 1.1rem;
+  }
+  .landing-overlay {
+    margin-top: 55vh;
+  }
+  .cta-button {
+    font-size: 1.15rem;
+    padding: 0.7rem 1.5rem;
+  }
+  /* Last page: shrink button to fit in message panel */
+  #open-wall-btn {
+    font-size: 0.9rem !important;
+    padding: 0.5rem 1.1rem !important;
+    margin-top: 0.4rem !important;
   }
 }
 
@@ -1076,8 +1172,22 @@ body {
 }
 
 @media (max-width: 600px) {
+  #wall-view {
+    overflow-y: auto;
+    overflow-x: hidden;
+    align-items: center;
+    justify-content: flex-start;
+  }
   .birthday-title {
     font-size: 3rem;
+  }
+  .birthday-main {
+    padding: 1.2rem 1rem;
+    gap: 0.9rem;
+    justify-content: flex-start;
+    padding-top: 2rem;
+    width: 100%;
+    max-width: 480px;
   }
   .cake-top {
     width: 120px !important;
@@ -1091,10 +1201,186 @@ body {
   .balloon {
     font-size: 2.2rem;
   }
+  /* Push side balloons out of the way of content */
+  .b2, .b3 { left: 0; }
+  .b5, .b6 { right: 0; }
   .birthday-typewriter {
-    font-size: 1.35rem;
+    font-size: 1.3rem;
   }
   .birthday-message-box {
     padding: 1rem 1.2rem;
+    max-width: 100%;
+    width: 100%;
   }
+  .blow-hint {
+    font-size: 1.2rem;
+  }
+  .universe-trigger-btn {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    white-space: normal;
+    text-align: center;
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 400px) {
+  .birthday-title {
+    font-size: 2.5rem;
+  }
+  .birthday-typewriter {
+    font-size: 1.15rem;
+  }
+  .candle-stick {
+    height: 32px;
+    width: 11px;
+  }
+  .flame {
+    width: 12px;
+    height: 18px;
+  }
+}
+
+/* ================================================================
+   UNIVERSE TRIGGER BUTTON
+   ================================================================ */
+.universe-trigger-btn {
+  background: linear-gradient(135deg, #ff4757 0%, #ff6b35 100%);
+  font-size: 1.1rem;
+  padding: 0.9rem 2rem;
+  margin-top: 0.4rem;
+  animation: universeBtnPulse 2s ease-in-out infinite;
+  position: relative;
+  z-index: 11;
+}
+@keyframes universeBtnPulse {
+  0%, 100% {
+    box-shadow: 0 5px 20px rgba(255, 71, 87, 0.45);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow:
+      0 8px 32px rgba(255, 71, 87, 0.7),
+      0 0 0 8px rgba(255, 71, 87, 0);
+    transform: scale(1.05);
+  }
+}
+.universe-trigger-btn:hover {
+  transform: scale(1.08) translateY(-2px) !important;
+  animation: none;
+  box-shadow: 0 10px 36px rgba(255, 71, 87, 0.7);
+}
+
+/* ================================================================
+   UNIVERSE VIEW
+   ================================================================ */
+#universe-view {
+  height: 100vh;
+  min-height: 0;
+  background: #000008;
+}
+#universe-view.active {
+  display: block;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 0;
+  align-items: unset;
+  justify-content: unset;
+}
+
+#universe-canvas {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: block;
+  z-index: 1;
+}
+
+.universe-scroll-track {
+  height: 500vh;
+  pointer-events: none;
+  position: relative;
+  z-index: 0;
+  margin-top: -100vh;
+}
+
+/* HUD — fixed overlay, shown only when universe is active */
+.universe-hud {
+  position: fixed;
+  bottom: 3rem;
+  left: 0;
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  pointer-events: none;
+  z-index: 20;
+}
+.universe-hud.active {
+  display: flex;
+}
+
+.universe-label {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: #fff;
+  text-align: center;
+  text-shadow:
+    0 0 20px rgba(120, 200, 255, 0.9),
+    0 2px 6px rgba(0, 0, 0, 0.95);
+  transition: opacity 0.5s ease;
+}
+
+.universe-scroll-hint {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: opacity 0.8s ease;
+  animation: hintBounce 2.2s ease-in-out infinite;
+}
+@keyframes hintBounce {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translateY(7px);
+    opacity: 0.9;
+  }
+}
+
+/* Back button */
+.universe-back-btn {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 30;
+  display: none;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  padding: 0.5rem 1.3rem;
+  border-radius: 50px;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  transition:
+    background 0.2s,
+    transform 0.2s,
+    border-color 0.2s;
+}
+.universe-back-btn.active {
+  display: block;
+}
+.universe-back-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateX(-3px);
 }

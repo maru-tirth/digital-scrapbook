@@ -1,38 +1,79 @@
 [
     {
         "id": "1",
-        "photo": "assets/photos/1.jpg",
-        "message": "Remember this amazing sunset? One for the books!",
-        "date": "2024-08-15"
+        "photo": "img/1.jpeg",
+        "message": "The 'feels>>' era 🫠 You're literally just lying there doing NOTHING and still managing to look like a whole movie scene. How. Explain. I'm waiting. 💀💖",
+        "date": "2024-08-15",
+        "song": {
+            "title": "From the Start",
+            "artist": "Laufey",
+            "url": "https://music.youtube.com/watch?v=h8DeZSB2o-c"
+        }
     },
     {
         "id": "2",
-        "photo": "assets/photos/2.jpg",
-        "message": "That time we tried to bake and made a glorious mess.",
-        "date": "2024-05-20"
+        "photo": "img/2.jpeg",
+        "message": "7pm on a random evening and you're just casually laying against the bedsheet looking like this 😭 The stare, the vibes, the DRAMA — no effort, no occasion, just pure main character energy for absolutely no reason. Unfair. 🌸🖤",
+        "date": "2024-06-10",
+        "song": {
+            "title": "Espresso",
+            "artist": "Sabrina Carpenter",
+            "url": "https://www.youtube.com/watch?v=eVli-tstM5E"
+        }
     },
     {
         "id": "3",
-        "photo": "assets/photos/3.jpg",
-        "message": "Adventures with the best co-pilot I could ask for.",
-        "date": "2024-03-11"
+        "photo": "img/3.jpeg",
+        "message": "The big eyes. The chin on the hands. The look that makes zero sense to be this cute 😩✨ You weren't even trying and here we are. I hate it here. (I love it here.) 💗",
+        "date": "2024-04-03",
+        "song": {
+            "title": "Butterflies",
+            "artist": "Kacey Musgraves",
+            "url": "https://www.youtube.com/watch?v=7sHMFoMiVho"
+        }
     },
     {
         "id": "4",
-        "photo": "assets/photos/4.jpg",
-        "message": "Just a perfect, lazy Sunday afternoon.",
-        "date": "2024-02-18"
+        "photo": "img/4.jpeg",
+        "message": "GLASSES. PINK SHIRT. THAT SMILE. 🤓💘 The 'lowkey' era but make it devastating for everyone who sees this. You smiled and I completely lost my mind, so that's cool. No further questions 😮‍💨",
+        "date": "2024-02-14",
+        "song": {
+            "title": "Crush",
+            "artist": "Tessa Violet",
+            "url": "https://www.youtube.com/watch?v=TW_rmDVPPyY"
+        }
     },
     {
         "id": "5",
-        "photo": "assets/photos/5.jpg",
-        "message": "We should definitely go back here someday soon!",
-        "date": "2023-11-29"
+        "photo": "img/5.jpeg",
+        "message": "A black & white selfie like you're the main character of an indie film 🎬🤍 Somewhere between 'I'm fine' and 'I have 14 unread messages and a whole vibe going on'… and somehow both are valid 😭✨",
+        "date": "2023-12-05",
+        "song": {
+            "title": "Softly",
+            "artist": "Clairo",
+            "url": "https://www.youtube.com/watch?v=TzW7bgHvZh0"
+        }
     },
     {
         "id": "6",
-        "photo": "assets/photos/6.jpg",
-        "message": "Cheers to more moments like this one. So much fun!",
-        "date": "2023-09-02"
+        "photo": "img/6.jpeg",
+        "message": "Two moods, one person, infinite chaos 😂🖤 Top photo: 'I'm so calm and mysterious ✨' — Bottom photo: GREMLIN MODE ACTIVATED 😈 Both are 10/10. I can't choose. I won't. 🫶",
+        "date": "2023-10-20",
+        "song": {
+            "title": "Villain Era",
+            "artist": "Taylor Acorn",
+            "url": "https://www.youtube.com/watch?v=NZBvVXrPfRM"
+        }
+    },
+    {
+        "id": "7",
+        "photo": "img/7.png",
+        "message": "Honey” 🍯✨ Sitting there with the plants and soft aesthetic — like you casually walked into a Pinterest board and stayed 💕🌿",
+        "date": "2023-08-18",
+        "song": {
+            "title": "honey",
+            "artist": "Mariah Carey",
+            "url": "https://www.youtube.com/watch?v=5hGVAV2_oZM"
+        }
     }
 ]
