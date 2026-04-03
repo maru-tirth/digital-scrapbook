@@ -1424,7 +1424,9 @@ document.addEventListener("DOMContentLoaded", () => {
           <p class="page-memory-label">Memory ${String(index + 1).padStart(2, "0")}</p>
           <p class="page-message-text">"${memory.message}"</p>
           ${
-            memory.song
+            memory.embedUrl
+              ? `<div class="spotify-wrap"><span class="spotify-note">♪</span><iframe class="spotify-embed" src="${memory.embedUrl}" width="100%" height="80" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>`
+              : memory.song
               ? `
           <a href="${memory.song.url}" target="_blank" rel="noopener noreferrer" class="page-song-tag">
             <span class="song-note">♪</span>

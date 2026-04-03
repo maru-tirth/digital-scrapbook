@@ -420,11 +420,11 @@ body {
 /* ── Right page — message ── */
 .page-right {
   position: relative;
-  padding: 2.5rem 2.2rem 2rem 2rem;
+  padding: 1.6rem 1.8rem 1.4rem 1.6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.55rem;
   background-color: #fefcf8;
   background-image: repeating-linear-gradient(
     180deg,
@@ -465,8 +465,8 @@ body {
 }
 .page-message-text {
   font-family: var(--font-heading);
-  font-size: clamp(1.55rem, 2.4vw, 2.05rem);
-  line-height: 1.48;
+  font-size: clamp(1rem, 1.55vw, 1.38rem);
+  line-height: 1.38;
   color: var(--text-warm);
   animation: fadeSlideUp 0.5s ease 0.08s both;
 }
@@ -477,6 +477,31 @@ body {
   margin-top: auto;
   align-self: flex-end;
   animation: fadeSlideUp 0.5s ease 0.16s both;
+}
+
+/* ── Spotify embed ── */
+.spotify-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.6rem 0.45rem 0.75rem;
+  background: linear-gradient(135deg, #fff0f5 0%, #ffecd8 100%);
+  border: 1.5px dashed rgba(255, 153, 102, 0.45);
+  border-radius: 16px;
+  box-shadow: 2px 3px 8px rgba(255, 153, 102, 0.15);
+  flex-shrink: 0;
+}
+.spotify-note {
+  font-size: 1.1rem;
+  color: var(--accent-2);
+  flex-shrink: 0;
+  line-height: 1;
+}
+.spotify-embed {
+  border-radius: 10px;
+  display: block;
+  flex: 1;
+  min-width: 0;
 }
 
 /* ── Song tag ── */
