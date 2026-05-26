@@ -287,7 +287,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // BIRTHDAY PAGE
   // ============================================================
   const BIRTHDAY_MSG =
-    "Happy Birthday, my little Snorlax 💤💖 Or should I say… Virshh 😏 Still can’t decide which one suits you more — the cute sleepy one or the one who secretly drives me crazy (okay fine… both). You’re honestly the perfect mix of adorable and irresistible… like how do you even do that? It’s unfair 😌 But don’t get too comfortable, okay? I’m still going to tease you nonstop — birthday privilege doesn’t save you from that 😈💞 Stay cute, stay mine, and have the happiest birthday, Virrshh 💖✨";
+    "Happy Birthday, my little Snorlax 💤💖 You’re honestly the perfect mix of adorable and dangerously irresistible… like seriously, save some charm for the rest of us? It’s getting unfair 😌✨ I still don’t understand how someone can be this cute and this sleepy at the same time, but somehow you make it work. Stay cute, stay a tiny bit dramatic, keep stealing attention without even trying… and maybe keep being a little mine too 🤭💖 Hope your birthday is full of naps, chaos, good food, and enough compliments to match your ego (if it fits 😏). Happy Birthday, Virrshh 💖✨";
 
   function initBirthdayPage() {
     buildCandles();
@@ -469,7 +469,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function playUniverseEntry() {
     // Ascending ethereal arpeggio — "launch into space"
     const freqs = [131, 165, 196, 247, 294, 330, 392, 523, 659, 784];
-    freqs.forEach((f, i) => tone(f, 1.4, "triangle", 0.10, i * 0.11));
+    freqs.forEach((f, i) => tone(f, 1.4, "triangle", 0.1, i * 0.11));
     // Deep resonant bass under it
     tone(65, 3.5, "sine", 0.18, 0.2);
     tone(98, 3.0, "sine", 0.09, 0.5);
@@ -519,31 +519,224 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // North America
-    land([[240,95],[320,85],[380,105],[415,170],[400,255],[355,318],[308,348],[258,296],[235,215],[242,138]],"#3d7a3d");
-    land([[245,100],[260,140],[248,215],[228,210],[230,150]],"#4a8a40");
-    land([[308,320],[368,332],[378,382],[328,422],[288,402],[278,358]],"#5a8a30");
+    land(
+      [
+        [240, 95],
+        [320, 85],
+        [380, 105],
+        [415, 170],
+        [400, 255],
+        [355, 318],
+        [308, 348],
+        [258, 296],
+        [235, 215],
+        [242, 138],
+      ],
+      "#3d7a3d",
+    );
+    land(
+      [
+        [245, 100],
+        [260, 140],
+        [248, 215],
+        [228, 210],
+        [230, 150],
+      ],
+      "#4a8a40",
+    );
+    land(
+      [
+        [308, 320],
+        [368, 332],
+        [378, 382],
+        [328, 422],
+        [288, 402],
+        [278, 358],
+      ],
+      "#5a8a30",
+    );
     // South America
-    land([[358,402],[398,390],[428,422],[440,502],[418,582],[388,642],[348,622],[338,552],[342,462]],"#4a8020");
-    land([[355,450],[395,440],[408,490],[388,520],[358,510]],"#6a9a20");
+    land(
+      [
+        [358, 402],
+        [398, 390],
+        [428, 422],
+        [440, 502],
+        [418, 582],
+        [388, 642],
+        [348, 622],
+        [338, 552],
+        [342, 462],
+      ],
+      "#4a8020",
+    );
+    land(
+      [
+        [355, 450],
+        [395, 440],
+        [408, 490],
+        [388, 520],
+        [358, 510],
+      ],
+      "#6a9a20",
+    );
     // Europe
-    land([[898,98],[958,88],[988,108],[998,148],[978,188],[948,198],[908,178],[888,138]],"#4a8030");
+    land(
+      [
+        [898, 98],
+        [958, 88],
+        [988, 108],
+        [998, 148],
+        [978, 188],
+        [948, 198],
+        [908, 178],
+        [888, 138],
+      ],
+      "#4a8030",
+    );
     // Africa
-    land([[918,198],[968,188],[998,228],[1008,302],[988,382],[958,432],[928,422],[908,358],[900,278],[905,218]],"#8a7030");
-    land([[920,380],[960,390],[978,442],[958,504],[928,510],[905,460],[905,398]],"#a08040");
+    land(
+      [
+        [918, 198],
+        [968, 188],
+        [998, 228],
+        [1008, 302],
+        [988, 382],
+        [958, 432],
+        [928, 422],
+        [908, 358],
+        [900, 278],
+        [905, 218],
+      ],
+      "#8a7030",
+    );
+    land(
+      [
+        [920, 380],
+        [960, 390],
+        [978, 442],
+        [958, 504],
+        [928, 510],
+        [905, 460],
+        [905, 398],
+      ],
+      "#a08040",
+    );
     // Middle East
-    land([[1000,200],[1060,195],[1080,230],[1060,270],[1020,265],[998,240]],"#b89050");
+    land(
+      [
+        [1000, 200],
+        [1060, 195],
+        [1080, 230],
+        [1060, 270],
+        [1020, 265],
+        [998, 240],
+      ],
+      "#b89050",
+    );
     // Asia
-    land([[1000,98],[1100,78],[1200,88],[1350,108],[1450,128],[1498,98],[1600,118],[1650,158],[1598,218],[1498,238],[1398,228],[1298,248],[1198,228],[1098,198],[1000,168]],"#4a8020");
-    land([[1098,228],[1298,238],[1398,268],[1448,328],[1398,378],[1298,368],[1198,348],[1098,308]],"#6a8030");
-    land([[1448,318],[1548,338],[1598,398],[1548,438],[1488,428],[1448,378]],"#8a9020");
-    land([[1200,350],[1260,380],[1240,430],[1195,420],[1185,380]],"#4a8030");
+    land(
+      [
+        [1000, 98],
+        [1100, 78],
+        [1200, 88],
+        [1350, 108],
+        [1450, 128],
+        [1498, 98],
+        [1600, 118],
+        [1650, 158],
+        [1598, 218],
+        [1498, 238],
+        [1398, 228],
+        [1298, 248],
+        [1198, 228],
+        [1098, 198],
+        [1000, 168],
+      ],
+      "#4a8020",
+    );
+    land(
+      [
+        [1098, 228],
+        [1298, 238],
+        [1398, 268],
+        [1448, 328],
+        [1398, 378],
+        [1298, 368],
+        [1198, 348],
+        [1098, 308],
+      ],
+      "#6a8030",
+    );
+    land(
+      [
+        [1448, 318],
+        [1548, 338],
+        [1598, 398],
+        [1548, 438],
+        [1488, 428],
+        [1448, 378],
+      ],
+      "#8a9020",
+    );
+    land(
+      [
+        [1200, 350],
+        [1260, 380],
+        [1240, 430],
+        [1195, 420],
+        [1185, 380],
+      ],
+      "#4a8030",
+    );
     // Japan
-    land([[1620,200],[1648,192],[1655,220],[1638,238],[1618,228]],"#3a7030");
+    land(
+      [
+        [1620, 200],
+        [1648, 192],
+        [1655, 220],
+        [1638, 238],
+        [1618, 228],
+      ],
+      "#3a7030",
+    );
     // Australia
-    land([[1478,568],[1598,558],[1678,588],[1698,658],[1668,718],[1578,728],[1488,698],[1458,638]],"#a07030");
-    land([[1488,580],[1560,576],[1578,600],[1548,620],[1498,615]],"#8a9020");
+    land(
+      [
+        [1478, 568],
+        [1598, 558],
+        [1678, 588],
+        [1698, 658],
+        [1668, 718],
+        [1578, 728],
+        [1488, 698],
+        [1458, 638],
+      ],
+      "#a07030",
+    );
+    land(
+      [
+        [1488, 580],
+        [1560, 576],
+        [1578, 600],
+        [1548, 620],
+        [1498, 615],
+      ],
+      "#8a9020",
+    );
     // Greenland
-    land([[538,58],[608,53],[648,78],[638,138],[588,158],[538,138],[518,88]],"#c8e4ff");
+    land(
+      [
+        [538, 58],
+        [608, 53],
+        [648, 78],
+        [638, 138],
+        [588, 158],
+        [538, 138],
+        [518, 88],
+      ],
+      "#c8e4ff",
+    );
 
     // Polar ice caps
     g.fillStyle = "rgba(215,238,255,0.94)";
@@ -720,23 +913,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ── Jupiter ──
     const jupiterC = document.createElement("canvas");
-    jupiterC.width = 256; jupiterC.height = 128;
+    jupiterC.width = 256;
+    jupiterC.height = 128;
     const jupG = jupiterC.getContext("2d");
-    const bands = ["#c98a55","#e8b070","#d4956a","#b87850","#e0a868","#c8885a","#dca060"];
+    const bands = [
+      "#c98a55",
+      "#e8b070",
+      "#d4956a",
+      "#b87850",
+      "#e0a868",
+      "#c8885a",
+      "#dca060",
+    ];
     bands.forEach((col, i) => {
       jupG.fillStyle = col;
       jupG.fillRect(0, i * 18, 256, 18);
     });
     jupG.strokeStyle = "rgba(0,0,0,0.12)";
     jupG.lineWidth = 1;
-    for (let i = 0; i <= 7; i++) { jupG.beginPath(); jupG.moveTo(0, i*18); jupG.lineTo(256, i*18); jupG.stroke(); }
+    for (let i = 0; i <= 7; i++) {
+      jupG.beginPath();
+      jupG.moveTo(0, i * 18);
+      jupG.lineTo(256, i * 18);
+      jupG.stroke();
+    }
     // Great Red Spot
     jupG.fillStyle = "rgba(180,60,40,0.75)";
-    jupG.beginPath(); jupG.ellipse(160, 65, 22, 14, 0, 0, Math.PI * 2); jupG.fill();
+    jupG.beginPath();
+    jupG.ellipse(160, 65, 22, 14, 0, 0, Math.PI * 2);
+    jupG.fill();
 
     const jupiterMesh = new THREE.Mesh(
       new THREE.SphereGeometry(1.5, 32, 32),
-      new THREE.MeshPhongMaterial({ map: new THREE.CanvasTexture(jupiterC), shininess: 12 }),
+      new THREE.MeshPhongMaterial({
+        map: new THREE.CanvasTexture(jupiterC),
+        shininess: 12,
+      }),
     );
     jupiterMesh.position.set(22, -2, -35);
     scene.add(jupiterMesh);
@@ -810,13 +1022,21 @@ document.addEventListener("DOMContentLoaded", () => {
         sPos[i * 3 + 2] = r * Math.cos(ph);
         const t = Math.random();
         if (t < 0.18) {
-          sCol[i*3]=0.72; sCol[i*3+1]=0.82; sCol[i*3+2]=1.0; // blue
+          sCol[i * 3] = 0.72;
+          sCol[i * 3 + 1] = 0.82;
+          sCol[i * 3 + 2] = 1.0; // blue
         } else if (t < 0.32) {
-          sCol[i*3]=1.0; sCol[i*3+1]=0.92; sCol[i*3+2]=0.68; // yellow
+          sCol[i * 3] = 1.0;
+          sCol[i * 3 + 1] = 0.92;
+          sCol[i * 3 + 2] = 0.68; // yellow
         } else if (t < 0.4) {
-          sCol[i*3]=1.0; sCol[i*3+1]=0.75; sCol[i*3+2]=0.7; // red dwarf
+          sCol[i * 3] = 1.0;
+          sCol[i * 3 + 1] = 0.75;
+          sCol[i * 3 + 2] = 0.7; // red dwarf
         } else {
-          sCol[i*3]=1.0; sCol[i*3+1]=1.0; sCol[i*3+2]=1.0; // white
+          sCol[i * 3] = 1.0;
+          sCol[i * 3 + 1] = 1.0;
+          sCol[i * 3 + 2] = 1.0; // white
         }
       }
       const sGeo = new THREE.BufferGeometry();
@@ -875,8 +1095,12 @@ document.addEventListener("DOMContentLoaded", () => {
         gPos[idx * 3] = r * Math.cos(a);
         gPos[idx * 3 + 1] = elev;
         gPos[idx * 3 + 2] = r * Math.sin(a);
-        const cc = cIn.clone().lerp(new THREE.Color(0xffffff), Math.random() * 0.55);
-        gCol[idx*3]=cc.r; gCol[idx*3+1]=cc.g; gCol[idx*3+2]=cc.b;
+        const cc = cIn
+          .clone()
+          .lerp(new THREE.Color(0xffffff), Math.random() * 0.55);
+        gCol[idx * 3] = cc.r;
+        gCol[idx * 3 + 1] = cc.g;
+        gCol[idx * 3 + 2] = cc.b;
       }
 
       // 4 spiral arms
@@ -888,12 +1112,15 @@ document.addEventListener("DOMContentLoaded", () => {
           const r = 18 + t * 280;
           const angle = offset + t * Math.PI * 3.6;
           const spread = r * 0.2;
-          gPos[idx*3]   = r * Math.cos(angle) + (Math.random()-0.5)*spread;
-          gPos[idx*3+1] = (Math.random()-0.5) * (2 + t * 9);
-          gPos[idx*3+2] = r * Math.sin(angle) + (Math.random()-0.5)*spread;
+          gPos[idx * 3] = r * Math.cos(angle) + (Math.random() - 0.5) * spread;
+          gPos[idx * 3 + 1] = (Math.random() - 0.5) * (2 + t * 9);
+          gPos[idx * 3 + 2] =
+            r * Math.sin(angle) + (Math.random() - 0.5) * spread;
           const cc = cIn.clone().lerp(cOut, t);
           const bright = 0.38 + Math.random() * 0.62;
-          gCol[idx*3]=cc.r*bright; gCol[idx*3+1]=cc.g*bright; gCol[idx*3+2]=cc.b*bright;
+          gCol[idx * 3] = cc.r * bright;
+          gCol[idx * 3 + 1] = cc.g * bright;
+          gCol[idx * 3 + 2] = cc.b * bright;
         }
       }
 
@@ -926,7 +1153,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const hintEl = document.getElementById("universe-scroll-hint");
 
     const LABELS = [
-      { at: 0.0,  text: "🌍 Earth" },
+      { at: 0.0, text: "🌍 Earth" },
       { at: 0.08, text: "🌙 Earth & The Moon" },
       { at: 0.22, text: "🪐 Inner Solar System" },
       { at: 0.42, text: "☀️ Our Solar System" },
@@ -1427,7 +1654,7 @@ document.addEventListener("DOMContentLoaded", () => {
             memory.embedUrl
               ? `<div class="spotify-wrap"><span class="spotify-note">♪</span><iframe class="spotify-embed" src="${memory.embedUrl}" width="100%" height="80" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>`
               : memory.song
-              ? `
+                ? `
           <a href="${memory.song.url}" target="_blank" rel="noopener noreferrer" class="page-song-tag">
             <span class="song-note">♪</span>
             <div class="song-info">
@@ -1435,7 +1662,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <span class="song-artist">${memory.song.artist}</span>
             </div>
           </a>`
-              : ""
+                : ""
           }
           <div class="page-message-doodle">${doodle}</div>
         </div>
@@ -1579,18 +1806,26 @@ document.addEventListener("DOMContentLoaded", () => {
   // Touch swipe to flip pages
   let touchStartX = 0;
   let touchStartY = 0;
-  scrapbookView.addEventListener("touchstart", (e) => {
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-  }, { passive: true });
-  scrapbookView.addEventListener("touchend", (e) => {
-    const dx = e.changedTouches[0].clientX - touchStartX;
-    const dy = e.changedTouches[0].clientY - touchStartY;
-    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
-      if (dx < 0) showNextPage();
-      else showPrevPage();
-    }
-  }, { passive: true });
+  scrapbookView.addEventListener(
+    "touchstart",
+    (e) => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    },
+    { passive: true },
+  );
+  scrapbookView.addEventListener(
+    "touchend",
+    (e) => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+        if (dx < 0) showNextPage();
+        else showPrevPage();
+      }
+    },
+    { passive: true },
+  );
 
   // --- INIT ---
   initializeApp();
