@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Scrapbook</title>
+    <title>My Memories</title>
+    <link rel="shortcut icon" href="./public/favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,6 +49,7 @@
 
     <!-- 3. Birthday Surprise -->
     <section id="wall-view" class="view">
+        <button id="birthday-back-btn" class="nav-button birthday-back-btn">←</button>
         <canvas id="confetti-canvas"></canvas>
         <span class="balloon b1" title="Pop me!">🎈</span>
         <span class="balloon b2" title="Pop me!">🎈</span>
@@ -68,11 +70,20 @@
             <div class="birthday-message-box">
                 <p class="birthday-typewriter" id="birthday-typewriter"></p>
             </div>
-            <!-- <button id="universe-btn" class="cta-button universe-trigger-btn">Wait... what do you mean ME?! 😱</button> -->
+            <button id="universe-btn" class="cta-button universe-trigger-btn">Wait... what do you mean ME?! 😱</button>
         </div>
     </section>
 
-    <!-- 4. Universe Journey — Earth to Galaxy -->
+    <!-- 4. Gallery View -->
+    <section id="gallery-view" class="view">
+        <div class="gallery-header">
+            <h2 class="gallery-title">Memory Gallery 📸</h2>
+            <button id="gallery-back-btn" class="nav-button">←</button>
+        </div>
+        <div id="gallery-grid" class="gallery-grid"></div>
+    </section>
+
+    <!-- 5. Universe Journey — Earth to Galaxy -->
     <section id="universe-view" class="view">
         <canvas id="universe-canvas"></canvas>
         <div class="universe-scroll-track"></div>
@@ -82,6 +93,12 @@
         </div>
         <button id="universe-back-btn" class="universe-back-btn">← Back</button>
     </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
 
 </body>
 </html>

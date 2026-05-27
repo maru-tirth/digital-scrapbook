@@ -19,6 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const landingView = document.getElementById("landing-view");
   const scrapbookView = document.getElementById("scrapbook-view");
   const wallView = document.getElementById("wall-view");
+  const galleryView = document.getElementById("gallery-view");
+  const galleryGrid = document.getElementById("gallery-grid");
+  const galleryBackBtn = document.getElementById("gallery-back-btn");
+  const birthdayBackBtn = document.getElementById("birthday-back-btn");
   const universeView = document.getElementById("universe-view");
   const universeHud = document.getElementById("universe-hud");
   const universeBackBtn = document.getElementById("universe-back-btn");
@@ -27,6 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const prevPageBtn = document.getElementById("prev-page-btn");
   const nextPageBtn = document.getElementById("next-page-btn");
   const pageCounter = document.getElementById("page-counter");
+
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const lightboxClose = document.querySelector(".lightbox-close");
 
   // ============================================================
   // SOUND SYSTEM (Web Audio API — no files needed)
@@ -351,6 +359,26 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(startTypewriter, 1800);
     startSparkles();
     startChimes();
+  }
+
+  function hideWallView() {
+    wallView.classList.remove("active");
+    scrapbookView.classList.add("active");
+    stopBirthdaySongLoop();
+    confettiActive = false;
+    if (confettiRafId) {
+      cancelAnimationFrame(confettiRafId);
+      confettiRafId = null;
+    }
+    if (sparkleInterval) {
+      clearInterval(sparkleInterval);
+      sparkleInterval = null;
+    }
+    if (chimeInterval) {
+      clearInterval(chimeInterval);
+      chimeInterval = null;
+    }
+    playClick();
   }
 
   function buildCandles() {
@@ -1283,6 +1311,53 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ============================================================
+  // GALLERY VIEW — show / hide / render
+  // ============================================================
+  function showGalleryView() {
+    scrapbookView.classList.remove("active");
+    galleryView.classList.add("active");
+    playClick();
+    renderGallery();
+  }
+
+  function hideGalleryView() {
+    galleryView.classList.remove("active");
+    scrapbookView.classList.add("active");
+    playClick();
+  }
+
+  function renderGallery() {
+    galleryGrid.innerHTML = "";
+    memories.forEach((memory) => {
+      const item = document.createElement("div");
+      item.className = "gallery-item";
+      item.innerHTML = `
+        <img src="${memory.photo}" alt="Memory" class="gallery-img" loading="lazy">
+        <div class="gallery-overlay">
+          <button class="gallery-btn enlarge-btn">Enlarge 🔍</button>
+          <button class="gallery-btn download-btn">Download ⬇️</button>
+        </div>
+      `;
+
+      item.querySelector(".enlarge-btn").addEventListener("click", () => {
+        lightboxImg.src = memory.photo;
+        lightbox.classList.add("active");
+      });
+
+      item.querySelector(".download-btn").addEventListener("click", () => {
+        const link = document.createElement("a");
+        link.href = memory.photo;
+        link.download = memory.photo.split("/").pop();
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      });
+
+      galleryGrid.appendChild(item);
+    });
+  }
+
+  // ============================================================
   // THREE.JS LANDING SCENE
   // ============================================================
   let threeRaf = null;
@@ -1676,17 +1751,32 @@ document.addEventListener("DOMContentLoaded", () => {
       `[data-index="${memories.length - 1}"]`,
     );
     if (lastPage) {
-      const btn = document.createElement("button");
-      btn.id = "open-wall-btn";
-      btn.className = "cta-button";
-      btn.textContent = "Open Surprise ✨";
-      btn.style.cssText =
-        "margin-top:0.6rem;font-size:1rem;padding:0.6rem 1.3rem;flex-shrink:0;";
-      lastPage.querySelector(".page-right").appendChild(btn);
-      btn.addEventListener("click", () => {
+      const btnContainer = document.createElement("div");
+      btnContainer.style.cssText = "display:flex;flex-direction:column;gap:0.8rem;margin-top:0.8rem;align-items:center;";
+
+      const galleryBtn = document.createElement("button");
+      galleryBtn.id = "open-gallery-btn";
+      galleryBtn.className = "cta-button";
+      galleryBtn.textContent = "Open Gallery 📸";
+      galleryBtn.style.cssText = "font-size:1rem;padding:0.6rem 1.3rem;flex-shrink:0;width:100%;max-width:200px;";
+      galleryBtn.addEventListener("click", () => {
+        playClick();
+        showGalleryView();
+      });
+
+      const surpriseBtn = document.createElement("button");
+      surpriseBtn.id = "open-wall-btn";
+      surpriseBtn.className = "cta-button";
+      surpriseBtn.textContent = "Open Surprise ✨";
+      surpriseBtn.style.cssText = "font-size:1rem;padding:0.6rem 1.3rem;flex-shrink:0;width:100%;max-width:200px;";
+      surpriseBtn.addEventListener("click", () => {
         playClick();
         showBirthdayPage();
       });
+
+      btnContainer.appendChild(galleryBtn);
+      btnContainer.appendChild(surpriseBtn);
+      lastPage.querySelector(".page-right").appendChild(btnContainer);
     }
   }
 
@@ -1781,6 +1871,30 @@ document.addEventListener("DOMContentLoaded", () => {
   nextPageBtn.addEventListener("click", showNextPage);
   prevPageBtn.addEventListener("click", showPrevPage);
 
+  // Gallery back button
+  if (galleryBackBtn) {
+    galleryBackBtn.addEventListener("click", hideGalleryView);
+  }
+
+  // Birthday back button
+  if (birthdayBackBtn) {
+    birthdayBackBtn.addEventListener("click", hideWallView);
+  }
+
+  // Lightbox close
+  if (lightboxClose) {
+    lightboxClose.addEventListener("click", () => {
+      lightbox.classList.remove("active");
+    });
+  }
+  if (lightbox) {
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove("active");
+      }
+    });
+  }
+
   // Universe view buttons
   const universeBtn = document.getElementById("universe-btn");
   if (universeBtn) {
@@ -1800,6 +1914,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (scrapbookView.classList.contains("active")) {
       if (e.key === "ArrowRight") showNextPage();
       if (e.key === "ArrowLeft") showPrevPage();
+    }
+    if (lightbox.classList.contains("active") && e.key === "Escape") {
+      lightbox.classList.remove("active");
     }
   });
 
